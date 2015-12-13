@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Zeach Cobbler
 // @namespace    https://github.com/RealDebugMonkey/ZeachCobbler
-// @updateURL    http://bit.do/ZeachCobblerJS2
-// @downloadURL  http://bit.do/ZeachCobblerJS2
+// @updateURL    https://github.com/smurfix/ZeachCobbler/raw/master/ZeachCobbler.user.js
+// @downloadURL  https://github.com/smurfix/ZeachCobbler/raw/master/ZeachCobbler.user.js
 // @contributer  See full list at https://github.com/RealDebugMonkey/ZeachCobbler#contributors-and-used-code
 // @supportURL   https://github.com/RealDebugMonkey/ZeachCobbler/issues
 // @version      0.31.2
