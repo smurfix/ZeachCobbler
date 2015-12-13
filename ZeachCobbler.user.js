@@ -1963,9 +1963,9 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
             
         };
         F.onmousedown = function(a) {
-            /*new*/if(cobbler.enableBlobLock) {lockCurrentBlob();}
-            /*new*/if(isPlayerAlive() && cobbler.rightClickFires){fireAtVirusNearestToCursor();}
-            /*new*/if(isPlayerAlive() && cobbler.clickToSplit){splitAtCursor();}return;
+            /*new*/if(cobbler.enableBlobLock) {lockCurrentBlob(); return; }
+            /*new*/if(isPlayerAlive() && cobbler.rightClickFires){fireAtVirusNearestToCursor(); return; }
+            /*new*/if(isPlayerAlive() && cobbler.clickToSplit){splitAtCursor(); return; }
             if (Ma) {
                 var c = a.clientX - (5 + q / 5 / 2);
                 var b = a.clientY - (5 + q / 5 / 2);
