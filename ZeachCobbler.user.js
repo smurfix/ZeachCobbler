@@ -1626,7 +1626,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                         imgCache[userNameLowerCase].src = "skins/" + userNameLowerCase + ".png";
                     }
                 }
-                if(0 != imgCache[userNameLowerCase].width && imgCache[userNameLowerCase].complete) {
+                if(imgCache[userNameLowerCase].width && imgCache[userNameLowerCase].complete) {
                     retval = imgCache[userNameLowerCase];
                 } else {
                     retval = null;
@@ -1657,7 +1657,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
         yBasePos = ~~this.y;
         // Viruses have empty name caches. If this is a virus with an empty name cache
         // then give it a name of the # of shots needed to split it.
-        if(null == nameCache) {
+        if(null === nameCache) {
             if (this.isVirus) {
                 var virusSize = this.nSize;
                 var shotsNeeded = getVirusShotsNeededForSplit(virusSize).toString();
@@ -1667,7 +1667,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
             }
         }
 
-        if((zeach.hasNickname || isMyCell) && (this.name && (nameCache && (null == itemToDraw || -1 == zeach.textBlobs.indexOf(kbIndex)))) ) {
+        if((zeach.hasNickname || isMyCell) && (this.name && (nameCache && (null === itemToDraw || -1 == zeach.textBlobs.indexOf(kbIndex)))) ) {
 
             itemToDraw = nameCache;
             itemToDraw.setValue(this.name);
@@ -1703,8 +1703,8 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
 
         if(zeach.isShowMass) {
             var scale;
-            if(itemToDraw || 0 == zeach.myPoints.length && ((!this.isVirus || this.isAgitated) && 20 < this.size)) {
-                if(null == this.massText) {
+            if(itemToDraw || !zeach.myPoints.length && ((!this.isVirus || this.isAgitated) && 20 < this.size)) {
+                if(null === this.massText) {
                     this.massText = new zeach.CachedCanvas(this.maxNameSize() / 2, "#FFFFFF", true, "#000000");
                 }
                 itemToDraw = this.massText;
@@ -1858,13 +1858,13 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
         if (!isPlayerAlive()){
             timeSpawned = null;
         }
-        if(null == timeSpawned && isPlayerAlive()) {
+        if(null === timeSpawned && isPlayerAlive()) {
             timeSpawned = Date.now(); // it's been reported we miss some instances of player spawning
         }
     }
 
     function onBeforeNewPointPacket() {
-        if (0 == _.size(zeach.myPoints)){
+        if (!_.size(zeach.myPoints)){
             timeSpawned = Date.now();
         }
     }
@@ -2047,7 +2047,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
         }
         Ra();
         ea(f("#region").val());
-        if (0 == za) {
+        if (!za) {
             if (x) {
                 N();
             }
@@ -2123,7 +2123,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
         ga = (da - s$$0 / 2) / k + u;
     }
     function La() {
-        if (null == ha) {
+        if (null === ha) {
             ha = {};
             f("#region").children().each(function() {
                 var a = f(this);
@@ -2263,7 +2263,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
             }
             r = null;
         }
-        if (null != J) {
+        if (null !== J) {
             var e = J;
             J = function() {
                 e(c);
@@ -2334,7 +2334,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
             for (;;) {
                 var e = a.getUint16(b, true);
                 b += 2;
-                if (0 == e) {
+                if (!e) {
                     break;
                 }
                 c += String.fromCharCode(e);
@@ -2379,7 +2379,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                 b += 4;
                 break;
             case 49:
-                if (null != z) {
+                if (null !== z) {
                     break;
                 }
                 var e$$0 = a.getUint32(b, true);
@@ -2419,7 +2419,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                 Y = (qa + oa) / 2;
                 Z = (ra + pa) / 2;
                 $ = 1;
-                if (0 == m.length) {
+                if (!m.length) {
                     t = Y;
                     u = Z;
                     k = $;
@@ -2481,7 +2481,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
         for (;;) {
             e = a.getUint32(c, true);
             c += 4;
-            if (0 == e) {
+            if (!e) {
                 break;
             }
             ++l;
@@ -2509,7 +2509,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
             if (k & 4) {
                 for (var s = "";;) { /* V28 */
                     var x = a.getUint8(c++);
-                    if (0 == x) break;
+                    if (!x) break;
                     s += String.fromCharCode(x)
                 }
                 /* This seems to be used to look up the player's color,
@@ -2529,7 +2529,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                     break;
                 }
                 c += 2;
-                if (0 == r) {
+                if (!r) {
                     break;
                 }
                 n += String.fromCharCode(r);
@@ -2581,12 +2581,12 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
             e = a.getUint32(c, true);
             c += 4;
             n = D[e];
-            if (null != n) {
+            if (null !== n) {
                 n.X();
             }
         }
         if (Ea) {
-            if (0 == m.length) {
+            if (!m.length) {
                 Oa(false);
             }
         }
@@ -2614,7 +2614,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
         }
     }
     function Ya() {
-        if (S() && null != I) {
+        if (S() && null !== I) {
             var a = L(1 + 2 * I.length);
             a.setUint8(0, 0);
             var c = 0;
@@ -2625,7 +2625,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
         }
     }
     function S() {
-        return null != r && r.readyState == r.OPEN;
+        return null !== r && r.readyState == r.OPEN;
     }
     function G(a) {
         if (S()) {
@@ -2635,7 +2635,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
         }
     }
     function Va() {
-        if (S() && null != B) {
+        if (S() && null !== B) {
             var a = L(1 + B.length);
             a.setUint8(0, 81);
             var c = 0;
@@ -2667,7 +2667,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
         return a *= H;
     }
     function tb() {
-        if (0 != m.length) {
+        if (m.length) {
             var a = 0;
             var c = 0;
             for (;c < m.length;c++) {
@@ -2759,7 +2759,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
         Q = Math.max(Q, wb());
         /*new*//*remap*/ var extras = " " + getScoreBoardExtrasString(Q);
         if (0 != Q) {
-            if (null == ta) {
+            if (null === ta) {
                 ta = new ua(24, "#FFFFFF");
             }
             ta.C(X("score") + ": " + ~~(Q / 100));
@@ -2850,12 +2850,12 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
     }
     function Wa() {
         y = null;
-        if (null != z || 0 != E.length) {
-            if (null != z || va) {
+        if (null !== z || E.length) {
+            if (null !== z || va) {
                 y = document.createElement("canvas");
                 var a = y.getContext("2d");
                 var c = 60;
-                c = null == z ? c + 24 * E.length : c + 180;
+                c = null === z ? c + 24 * E.length : c + 180;
                 var b = Math.min(200, 0.3 * q) / 200;
                 y.width = 200 * b;
                 y.height = c * b;
@@ -2869,7 +2869,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                 b = X("leaderboard");
                 a.font = "30px Ubuntu";
                 a.fillText(b, 100 - a.measureText(b).width / 2, 40);
-                if (null == z) {
+                if (null === z) {
                     a.font = "20px Ubuntu";
                     c = 0;
                     for (;c < E.length;++c) {
@@ -2939,7 +2939,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
         /*new*/var b$$0 = "1" == f("#ZCOverlay").attr("data-has-account-data");
 
         f("#helloContainer").attr("data-has-account-data", "1");
-        if (null == c && d.localStorage.loginCache) {
+        if (null === c && d.localStorage.loginCache) {
             var e = JSON.parse(d.localStorage.loginCache);
             e.f = a.f;
             e.d = a.d;
@@ -3039,7 +3039,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                 f(".agario-profile-picture").attr("src", a.data.url);
             });
             f("#helloContainer").attr("data-logged-in", "1");
-            if (null != B) {
+            if (null !== B) {
                 f.ajax("https://m.agar.io/checkToken", {
                     error : function() {
                         B = null;
@@ -3139,7 +3139,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
         var Ga = new Image;
         Ga.src = "img/split.png";
         var ib = document.createElement("canvas");
-        if ("undefined" == typeof console || ("undefined" == typeof DataView || ("undefined" == typeof WebSocket || (null == ib || (null == ib.getContext || null == d.localStorage))))) {
+        if ("undefined" == typeof console || ("undefined" == typeof DataView || ("undefined" == typeof WebSocket || (null === ib || (null === ib.getContext || null === d.localStorage))))) {
             alert("You browser does not support this game, we recommend you to use Firefox to play this");
         } else {
 
@@ -3190,8 +3190,22 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
             d.setLiteBrite = function(a) {
                 Fa = a;
             };
+<<<<<<< HEAD
             if (null != d.localStorage) {
+<<<<<<< HEAD
                 if (null == d.localStorage.AB9) {
+||||||| parent of 0e91a2a... '==' vs. '===' comparisons
+            if (null != d.localStorage) {
+                if (null === d.localStorage.AB9) {
+=======
+            if (null !== d.localStorage) {
+                if (null === d.localStorage.AB9) {
+>>>>>>> 0e91a2a... '==' vs. '===' comparisons
+||||||| parent of 407e6de... Use "===" when comparing to 'null'
+                if (null == d.localStorage.AB9) {
+=======
+                if (null === d.localStorage.AB9) {
+>>>>>>> 407e6de... Use "===" when comparing to 'null'
                     d.localStorage.AB9 = 0 + ~~(100 * Math.random());
                 }
                 hb = +d.localStorage.AB9;
@@ -3569,7 +3583,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                 },
                 B : function(a) {
                     if (this.name = a) {
-                        if (null == this.o) {
+                        if (null === this.o) {
                             this.o = new ua(this.l(), "#FFFFFF", true, "#000000");
                         } else {
                             this.o.M(this.l());
@@ -3583,7 +3597,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                         var c = ~~(Math.random() * this.a.length);
                         this.a.splice(c, 1);
                     }
-                    if (0 == this.a.length) {
+                    if (!this.a.length) {
                         if (0 < a) {
                             this.a.push(new Ha(this, this.x, this.y, this.size, Math.random() - 0.5));
                         }
@@ -3637,7 +3651,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                         var d = a$$0[b].i;
                         e = a$$0[(b - 1 + c) % c].i;
                         l = a$$0[(b + 1) % c].i;
-                        if (15 < this.size && (null != W && (20 < this.size * k && 0 < this.id))) {
+                        if (15 < this.size && (null !== W && (20 < this.size * k && 0 < this.id))) {
                             var f = false;
                             var g = a$$0[b].x;
                             var m = a$$0[b].y;
@@ -3669,7 +3683,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                         e = 2 * Math.PI / c;
                         l = this.a[b].i;
                         if (this.h) {
-                            if (0 == b % 2) {
+                            if (!(b % 2)) {
                                 l += 5;
                             }
                         }
@@ -3768,7 +3782,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                         /*new*/if(!cobbler.isLiteBrite)
                             a.fill();
 
-                        if (!(null == d)) {
+                        if (!(null === d)) {
                             if (!b) {
                                 a.save();
                                 /*new*/zeach.ctx.globalAlpha = (isSpecialSkin(this.name.toLowerCase()) || _.contains(zeach.myIDs, this.id)) ? 1 : 0.5;
@@ -3785,14 +3799,14 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                             }
                         }
                         a.globalAlpha = 1;
-                        if (null != d) {
+                        if (null !== d) {
                             if (b) {
                                 a.drawImage(d, this.x - 2 * this.size, this.y - 2 * this.size, 4 * this.size, 4 * this.size);
                             }
                         }
                         b = -1 != m.indexOf(this);
                         c = ~~this.y;
-                        //if (0 != this.id && ((va || b) && (this.name && (this.o && (null == d || -1 == Bb.indexOf(e)))))) {
+                        //if (0 != this.id && ((va || b) && (this.name && (this.o && (null === d || -1 == Bb.indexOf(e)))))) {
                         //    d = this.o;
                         //    d.C(this.name);
                         //    d.M(this.l());
@@ -3807,7 +3821,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                         //if (0 < this.id) {
                         //    if (gb) {
                         //        if (b || 0 == m.length && ((!this.h || this.n) && 20 < this.size)) {
-                        //            if (null == this.O) {
+                        //            if (null === this.O) {
                         //                this.O = new ua(this.l() / 2, "#FFFFFF", true, "#000000");
                         //            }
                         //            b = this.O;
@@ -3822,7 +3836,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                         //        }
                         //    }
                         //}
-                        /*new*//*remap*/if(0 != this.id) {
+                        /*new*//*remap*/if(this.id) {
                             /*new*//*remap*/var vertical_offset = drawCellName.call(this,b,e,d);
                             /*new*//*remap*/ drawCellMass.call(this,vertical_offset,b);
                         }
@@ -3866,7 +3880,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                     }
                 },
                 L : function() {
-                    if (null == this.p) {
+                    if (null === this.p) {
                         this.p = document.createElement("canvas");
                         this.T = this.p.getContext("2d");
                     }
@@ -3947,7 +3961,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                                     return true;
                                 }
                             }
-                            if (0 != this.c.length) {
+                            if (this.c.length) {
                                 var d = this;
                                 return this.$(a, function(c) {
                                     return d.c[c].H(a);
@@ -3960,7 +3974,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                             for (;b$$0 < this.items.length;++b$$0) {
                                 c(this.items[b$$0]);
                             }
-                            if (0 != this.c.length) {
+                            if (this.c.length) {
                                 var d = this;
                                 this.$(a, function(b) {
                                     d.c[b].A(a, c);
@@ -3968,7 +3982,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                             }
                         },
                         m : function(a) {
-                            if (0 != this.c.length) {
+                            if (this.c.length) {
                                 this.c[this.Z(a)].m(a);
                             } else {
                                 if (this.items.length >= b$$1 && this.depth < e$$0) {
@@ -4362,7 +4376,11 @@ function OnChangeDisplayChart(display)
 {
     LS_setValue('display_chart', display ? 'true' : 'false');
     display_chart = display;
-    display ? jQuery('#chart-container').show() : jQuery('#chart-container').hide();
+    if(display) {
+        jQuery('#chart-container').show();
+    } else {
+        jQuery('#chart-container').hide();
+    }
 }
 
 function OnChangeDisplayStats(display)
@@ -4481,7 +4499,7 @@ function OnGainMass(me, other)
         var key = other.name + ':' + other.color;
         stats.cells.num++;
         stats.cells.mass += mass;
-        if (stats.gains[key] == undefined)
+        if (undefined === stats.gains[key])
             stats.gains[key] = {num: 0, mass: 0};
         stats.gains[key].num++;
         stats.gains[key].mass += mass;
@@ -4493,7 +4511,7 @@ function OnLoseMass(me, other)
 {
     var mass = me.size * me.size;
     var key = other.name + ':' + other.color;
-    if (stats.losses[key] == undefined)
+    if (undefined === stats.losses[key])
         stats.losses[key] = {num: 0, mass: 0};
     stats.losses[key].num++;
     stats.losses[key].mass += mass;
@@ -4750,7 +4768,7 @@ for (i=0;i<ssfxlist.length;i++) {
     ssfxs.push(newsfx);
 }
 function sfx_play(id) {
-    if (document.getElementById("sfx").value==0) return;
+    if (!document.getElementById("sfx").value) return;
     var event = ssfxs[id];
     event.volume = document.getElementById("sfx").value;
     event.play();
@@ -4778,15 +4796,15 @@ for (i=0;i<sfxlist.length;i++) {
     sfxs[sfxlist[i]] = newsfx;
 }
 function sfx_event(id) {
-    if (document.getElementById("sfx").value==0) return;
+    if (!document.getElementById("sfx").value) return;
     var event = jQuery.clone(sfxs[id]);
     event.volume = document.getElementById("sfx").value;
     event.play();
 }
 
 var StartBGM = function () {
-    if (document.getElementById("bgm").value==0) return;
-    if (bgmusic.src == ""){
+    if (!document.getElementById("bgm").value) return;
+    if (bgmusic.src === ""){
         bgmusic.src = _.sample(tracks, 1);
         bgmusic.load()
     }
@@ -4796,7 +4814,7 @@ var StartBGM = function () {
 
 var StopBGM = function () {
     bgmusic.pause();
-    if (document.getElementById("bgm").value==0) return;
+    if (!document.getElementById("bgm").value) return;
     bgmusic.src = _.sample(tracks, 1);
     bgmusic.load()
 };
