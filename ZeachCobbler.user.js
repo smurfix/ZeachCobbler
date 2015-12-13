@@ -3134,7 +3134,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
         var V = true;
         var za = 0;
         var Ma = "ontouchstart" in d && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        var Ga = new Image;
+        var Ga = new(Image);
         Ga.src = "img/split.png";
         var ib = document.createElement("canvas");
         if ("undefined" == typeof console || ("undefined" == typeof DataView || ("undefined" == typeof WebSocket || (null === ib || (null === ib.getContext || null === d.localStorage))))) {
@@ -3762,7 +3762,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
                         //if (!this.n && (fb && ":teams" != O)) {
                         //    if (-1 != jb.indexOf(e)) {
                         //        if (!T.hasOwnProperty(e)) {
-                        //            T[e] = new Image;
+                        //            T[e] = new(Image);
                         //            T[e].src = "skins/" + e + ".png";
                         //        }
                         //        b = 0 != T[e].width && T[e].complete ? T[e] : null;
@@ -3911,7 +3911,7 @@ jQuery("#connecting").after('<canvas id="canvas" width="800" height="600"></canv
             /*new*//*remap*/restoreCanvasElementObj(ua.prototype);
             if (!Date.now) {
                 Date.now = function() {
-                    return(new Date).getTime();
+                    return(new(Date)).getTime();
                 };
             }
             (function() {
